@@ -1,0 +1,44 @@
+.editable{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(53, 52, 52);
+    width: 100%;
+    height: fit-content;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.editable:hover{
+    background-color: #ccc;
+}
+.editable p{
+    margin: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(53, 52, 52);
+    width: 100%;
+    text-align: center;
+}
+.editable_edit{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.editable_edit input{
+    border-radius: 3px;
+    width: 340px;
+    outline: none;
+    border: 1px solid rgb(0, 99, 221);
+    padding: 10px;
+    font-size: 1rem;
+}
+.editable_edit_footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
