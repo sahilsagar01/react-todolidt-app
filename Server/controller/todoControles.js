@@ -13,7 +13,7 @@ const createTodo = async (req, res) => {
       newTodo.save()
       .then(doc => {
        if(doc){
-        res.json("New todo added")
+        res.json(doc)
        }else{
         res.json("Operation failed")
        }

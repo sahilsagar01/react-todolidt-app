@@ -10,12 +10,12 @@ function AddItem(props) {
   const date = d.toLocaleDateString();
 
   const [newDate , setNewDate] = useState(date);
-  const updateDate = () => {
-    const d = new Date();
-    const date = d.toLocaleDateString();
-    setNewDate(date)
-  }
-  setInterval(updateDate, 1000)
+  // const updateDate = () => {
+  //   const d = new Date();
+  //   const date = d.toLocaleDateString();
+  //   setNewDate(date)
+  // }
+  // setInterval(updateDate, 1000)
 
   const [editable, setEditable] = useState(false);
   const [newItem, setNewItem] = useState({
@@ -26,6 +26,7 @@ function AddItem(props) {
 
   const handleClick = async(e) => {
     e.preventDefault();
+    if(newItem.todo.length < 1) return  //handle no todo input
     try{
       const api = "http://localhost:3001/postTodo";
       const postItem = await axios.post(api, newItem);
@@ -37,7 +38,7 @@ function AddItem(props) {
         })
       })
       props.setTodos(pV => {
-        return ([...pV, newItem])
+        return ([...pV, postItem.data])
       })
     }
     catch(err){
@@ -59,17 +60,17 @@ function AddItem(props) {
     <div className="editable">
       {editable ? (
         <form className="editable_edit">
-          <input name="todo" type="text" placeholder="title" onChange={handleChange} value={newItem.todo}/>
+          <input name="todo" type="text" placeholder="Add todo" onChange={handleChange} value={newItem.todo}/>
           <div className="editable_edit_footer">
             <Button onClick={handleClick} variant="contained" href="#contained-buttons">
-              AddItem
+              Add Item
             </Button>
 
             <CloseIcon onClick={() => setEditable(false)} />
           </div>
         </form>
       ) : (
-        <p onClick={() => setEditable(true)}>add item</p>
+        <p onClick={() => setEditable(true)}>Add item</p>
       )}
     </div>
   );

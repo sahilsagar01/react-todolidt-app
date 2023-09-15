@@ -1,11 +1,13 @@
 .card{
     padding: 10px;
     border-radius: 5px;
-    background-color: #fff;
+    background-color: rgb(241, 221, 250);
+    border: 2px solid #fff;
+    color: #5b5757;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 350px;
+    width: 100%;
 }
 
 .card_title{
@@ -14,8 +16,13 @@
     gap: 10px;
     align-items: flex-start;
 }
+.card_title span{
+    font-size: 20px;
+}
 .card_title input{
-    margin-top: 6px;
+    margin-top: 8px;
+    height: 16px;
+    width: 16px;
 }
 .card_footer{
     display: flex;
@@ -25,7 +32,13 @@
 .card_footer svg{
     height: 25px;
     width: 25px;
+    cursor: pointer;
 }
+.card_footer svg:hover{
+    height: 30px;
+    width: 30px;
+}
+
 .card_footer p svg{
     height: 15px;
     width: 15px;
@@ -35,4 +48,6 @@
     gap: 5px;
     align-items: center;
     margin-top: 10px;
+    opacity: 100%;
+   
 }

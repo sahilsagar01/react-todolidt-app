@@ -7,24 +7,23 @@ import axios from 'axios'
 
 function Home() {
   const [todos, setTodos] = useState([])
-  const [checkBox, setCheckBox] = useState(false)
 
 
-  const updateCheckBox = async(id, dbId) => {
-    console.log(id+" updated "+dbId)
-    try{
-      const api = `http://localhost:3001/${dbId}`;
-      console.log(checkBox)
-      const updateData = await axios.patch(api, {
-        isDone: !checkBox
-      })
-      setCheckBox(!checkBox)
-      console.log(updateData.data)
-    }
-    catch(err){
-      console.log(err)
-    }
-  }
+  // const updateCheckBox = async(id, dbId) => {
+  //   console.log(id+" updated "+dbId)
+  //   try{
+  //     const api = `http://localhost:3001/${dbId}`;
+  //     console.log(checkBox)
+  //     const updateData = await axios.patch(api, {
+  //       isDone: !checkBox
+  //     })
+  //     setCheckBox(!checkBox)
+  //     console.log(updateData.data)
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
   const deleteItem = async(id, dbId) => {
     try{
@@ -33,9 +32,8 @@ function Home() {
       setTodos(pV => {
         return pV.filter((item, index) => {
           return index !== id
-        })
-      })
-      console.log(deletedTodo)
+        });
+      });
     }
     catch(err){
       console.log(err)
@@ -55,7 +53,10 @@ function Home() {
       }
     }
     fetchTodoItems();
-  },[todos.length])
+  },[]);
+
+
+  
   return (
     <div>
         <NavBar />
@@ -64,7 +65,6 @@ function Home() {
         todos={todos}
         setTodo={setTodos}
         onDelete={deleteItem}
-        onUpdate={updateCheckBox}
          />
         </div>
         <Footer />

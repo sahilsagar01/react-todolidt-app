@@ -9,52 +9,38 @@ function Items(props) {
   const [lineThrough, setLineThrough] = useState(false)
   
 
+  useEffect(() => {
+    setLineThrough(Done)
+  },[]);
 
-  const handlChange = async(e) => {
-    // onUpdCheckBox(id, dbId);
-    console.log(e.target.checked)
+  const handlChange = async (e) => {
     try{
       const api = "http://localhost:3001";
       const allData = await axios.get(api);
-      console.log(allData.data[e.target.id]._id);
-
       const patchApi = `http://localhost:3001/${allData.data[e.target.id]._id}`
       const updatedIsDone = await axios.patch(patchApi, {
         isDone: e.target.checked
       });
-      console.log(updatedIsDone.data.isDone);
-      setLineThrough(updatedIsDone.data.isDone)
+      setLineThrough(updatedIsDone.data.isDone);
     }
     catch(err){
       console.log(err)
     }
-  }
-
-
-  // const handleCheckbox = async(e) =>{
-  //   try{
-  //     console.log(e.target.checked+" "+e.target.id)
-  //     const api = `http://localhost:3001/`
-  //   setLineThrough(e.target.checked)
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
+  };
 
   
   return (
     <div className='card'>
         <div className='card_title' style={{textDecoration: props.style || lineThrough ? "line-through" : "none"}}>
-        <input id={id} name={Done} type='checkbox' onChange={handlChange} />
-        {todo}        
+        <input id={id} name={Done} type='checkbox' onChange={handlChange} defaultChecked={Done ? true : false} />
+        <span>{todo}</span>      
         </div>
         <div className='card_footer'>
         <p><AccessTimeIcon /> {date}</p>
         <DeleteOutlineIcon onClick={()=> onDel(id, dbId)} />
         </div>
     </div>
-  )
+  );
 }
 
 export default Items;
