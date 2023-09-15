@@ -8,7 +8,7 @@ function Board(props) {
   return (
     <div className='board'>
     <div className='board_top'>
-    <p className='board_top_title'>To do <span>{props.todos.length}</span></p>
+    <p className='board_top_title'>Todo <span>{props.todos.length}</span></p>
     </div>
     <div className='board_cards custom-scroll'>
     <AddItem 
@@ -18,7 +18,7 @@ function Board(props) {
       props.todos.map((item, index) => {
         console.log(item)
         return <Items 
-        key={index} 
+        key={item._id} 
         id={index}
         dbId={item._id}
         todo={item.todo}

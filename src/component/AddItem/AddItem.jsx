@@ -62,7 +62,7 @@ function AddItem(props) {
         <form className="editable_edit">
           <input name="todo" type="text" placeholder="Add todo" onChange={handleChange} value={newItem.todo}/>
           <div className="editable_edit_footer">
-            <Button onClick={handleClick} variant="contained" href="#contained-buttons">
+            <Button onClick={handleClick} variant="contained" color="secondary" href="#contained-buttons">
               Add Item
             </Button>
 
@@ -70,7 +70,7 @@ function AddItem(props) {
           </div>
         </form>
       ) : (
-        <p onClick={() => setEditable(true)}>Add item</p>
+        <p onClick={() => setEditable(true)}>+ New task</p>
       )}
     </div>
   );

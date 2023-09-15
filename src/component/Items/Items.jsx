@@ -37,7 +37,9 @@ function Items(props) {
         </div>
         <div className='card_footer'>
         <p><AccessTimeIcon /> {date}</p>
+        <span>
         <DeleteOutlineIcon onClick={()=> onDel(id, dbId)} />
+        </span>
         </div>
     </div>
   );

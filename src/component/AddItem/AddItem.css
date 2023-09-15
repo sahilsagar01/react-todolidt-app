@@ -1,5 +1,5 @@
 .editable{
-    background-color: rgb(243, 186, 237);
+    background-color: #b094ed;
     border-radius: 5px;
     border: 2px solid #fff;
     width: 100%;
@@ -13,7 +13,7 @@
     cursor: pointer;
 }
 .editable:hover{
-    background-color: rgb(241, 221, 250);
+    background-color: #6F61C0;
 }
 .editable p{
     margin: 1rem;

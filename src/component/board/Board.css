@@ -13,18 +13,17 @@
 }
 .board{
     min-width: 290px;
-    max-width: 450px;
+    width: 500px;
     max-height: 80%;
-    opacity: 70%;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     margin: 2rem;
-    border-radius: 3px;
-    border: 2px solid #fff;
-    background-color: rgb(243, 186, 237);
+    border-radius: 10px;
+    background-color: #b094ed;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .board_top{
     display: flex;
@@ -42,10 +41,10 @@
 }
 
 .board_top_title span{
-    color: gray;
+    color: #fff;
 }
 .board_cards{
-    background-color: rgb(243, 186, 237);
+    background-color: #fff;
     flex: 1;
     height: 50%;
     display: flex;
@@ -53,6 +52,6 @@
     gap: 10px;
     padding: 10px;
     border: 2px solid #fff;
-    border-radius: 3px;
+    border-radius: 5px;
     overflow-y: auto;
 }
