@@ -11,7 +11,7 @@ const PORT = 3001
 const mongoConnect = async(params) => {
     try{
        await mongoose.connect(
-            process.env.DB || "mongodb://localhost:27017/mernTodoDB"
+            process.env.DB || "mongodb+srv://java:gogomaster@database.qrvyh.mongodb.net/ReactToDOApp?retryWrites=true&w=majority"
         );
         console.log("Mongodb atlas Connected")
     }

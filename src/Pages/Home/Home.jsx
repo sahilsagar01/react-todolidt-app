@@ -9,21 +9,7 @@ function Home() {
   const [todos, setTodos] = useState([])
 
 
-  // const updateCheckBox = async(id, dbId) => {
-  //   console.log(id+" updated "+dbId)
-  //   try{
-  //     const api = `http://localhost:3001/${dbId}`;
-  //     console.log(checkBox)
-  //     const updateData = await axios.patch(api, {
-  //       isDone: !checkBox
-  //     })
-  //     setCheckBox(!checkBox)
-  //     console.log(updateData.data)
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
+ 
 
   const deleteItem = async(id, dbId) => {
     try{
@@ -46,7 +32,8 @@ function Home() {
       try{
         const api = "http://localhost:3001";
         const allTodo = await axios.get(api);
-        setTodos(allTodo.data)
+        setTimeout(() => setTodos(allTodo.data),1000)
+        
       }
       catch(err){
         console.log(err)

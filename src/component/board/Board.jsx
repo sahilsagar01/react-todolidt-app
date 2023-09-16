@@ -1,21 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Board.css"
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 import AddItem from '../AddItem/AddItem';
 import Items from '../Items/Items';
 
 
 function Board(props) {
+
+
+
+
   return (
     <div className='board'>
     <div className='board_top'>
-    <p className='board_top_title'>Todo <span>{props.todos.length}</span></p>
+    <p className='board_top_title'>Todos <span>{props.todos.length}</span></p>
     </div>
     <div className='board_cards custom-scroll'>
     <AddItem 
       setTodos={props.setTodo}
     />
     {
-      props.todos.map((item, index) => {
+     props.todos.length === 0 ?
+     <Stack spacing={1}>
+     <Skeleton animation="wave" variant="rectangular" height={100} />
+     <Skeleton animation="wave" variant="rectangular" height={100} />
+     <Skeleton animation="wave" variant="rectangular" height={100} />
+     </Stack> :
+     props.todos.map((item, index) => {
         console.log(item)
         return <Items 
         key={item._id} 
