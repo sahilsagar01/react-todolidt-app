@@ -1,7 +1,6 @@
 .editable{
     background-color: #b094ed;
     border-radius: 5px;
-    border: 2px solid #fff;
     width: 100%;
     height: fit-content;
     padding: 5px;
@@ -11,9 +10,13 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .editable:hover{
     background-color: #6F61C0;
+    position: relative;
+    bottom: 1px;
 }
 .editable p{
     font-size: 1.5rem;

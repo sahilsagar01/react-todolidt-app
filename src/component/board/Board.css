@@ -27,11 +27,15 @@
 }
 .board_top{
     display: flex;
+    flex-direction: column;
 }
 .board_top p{
     font-size: 1.2rem;
 }
-
+.board_add{
+    display: flex;
+    justify-content: center;
+}
 .board_top_title{
     flex: 1;
     display: flex;

@@ -14,13 +14,17 @@ function Board(props) {
   return (
     <div className='board'>
     <div className='board_top'>
+    <div className='board_count'>
     <p className='board_top_title'>Todos <span>{props.todos.length}</span></p>
     </div>
-    <div className='board_cards custom-scroll'>
+    <div className='board_add'>
     <AddItem 
       setTodos={props.setTodo}
       setNavText={props.onNavText}
     />
+    </div>
+    </div>
+    <div className='board_cards custom-scroll'>
     {
      props.loding ?
      <Stack spacing={1}>
