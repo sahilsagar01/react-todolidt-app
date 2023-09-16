@@ -19,9 +19,10 @@ function Board(props) {
     <div className='board_cards custom-scroll'>
     <AddItem 
       setTodos={props.setTodo}
+      setNavText={props.onNavText}
     />
     {
-     props.todos.length === 0 ?
+     props.loding ?
      <Stack spacing={1}>
      <Skeleton animation="wave" variant="rectangular" height={100} />
      <Skeleton animation="wave" variant="rectangular" height={100} />
@@ -37,7 +38,6 @@ function Board(props) {
         date={item.date}
         Done={item.isDone}
         onDel={props.onDelete}
-        onUpdCheckBox={props.onUpdate}
          />
       })
     }

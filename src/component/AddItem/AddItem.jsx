@@ -9,13 +9,6 @@ function AddItem(props) {
   const d = new Date();
   const date = d.toLocaleDateString();
 
-  const [newDate , setNewDate] = useState(date);
-  // const updateDate = () => {
-  //   const d = new Date();
-  //   const date = d.toLocaleDateString();
-  //   setNewDate(date)
-  // }
-  // setInterval(updateDate, 1000)
 
   const [editable, setEditable] = useState(false);
   const [newItem, setNewItem] = useState({
@@ -28,7 +21,7 @@ function AddItem(props) {
     e.preventDefault();
     if(newItem.todo.length < 1) return  //handle no todo input
     try{
-      const api = "http://localhost:3001/postTodo";
+      const api = "https://react-todolist-app-server.onrender.com/postTodo";
       const postItem = await axios.post(api, newItem);
       console.log(postItem.data)
       setNewItem(pV => {
@@ -40,6 +33,8 @@ function AddItem(props) {
       props.setTodos(pV => {
         return ([...pV, postItem.data])
       })
+      props.setNavText("Todo Added")
+      setTimeout(() => props.setNavText("Todo List"), 2000)
     }
     catch(err){
       console.log(err)

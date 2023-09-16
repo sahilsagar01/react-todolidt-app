@@ -7,19 +7,23 @@ import axios from 'axios'
 
 function Home() {
   const [todos, setTodos] = useState([])
+  const [loding, setLoding] = useState(true)
+  const [NavText, setNavText] = useState("Waiting for server... ")
 
 
  
 
   const deleteItem = async(id, dbId) => {
     try{
-      const api = `http://localhost:3001/delete/${dbId}`
+      const api = `https://react-todolist-app-server.onrender.com/delete/${dbId}`
       const deletedTodo = await axios.delete(api);
       setTodos(pV => {
         return pV.filter((item, index) => {
           return index !== id
         });
       });
+      setNavText("Todo Deleted")
+      setTimeout(() => setNavText("Todo List"), 2000)
     }
     catch(err){
       console.log(err)
@@ -30,9 +34,14 @@ function Home() {
   useEffect(() => {
     const fetchTodoItems = async() => {
       try{
-        const api = "http://localhost:3001";
+        const api = "https://react-todolist-app-server.onrender.com";
         const allTodo = await axios.get(api);
-        setTimeout(() => setTodos(allTodo.data),1000)
+        setTodos(allTodo.data)
+        if(allTodo.data){
+          setTimeout(()=>setLoding(false),1000)
+          setTimeout(()=>setNavText("Todo List"),1000)
+          
+        }
         
       }
       catch(err){
@@ -46,12 +55,14 @@ function Home() {
   
   return (
     <div>
-        <NavBar />
+        <NavBar addItem={NavText} />
         <div className='home_boards'>
         <Board 
         todos={todos}
+        loding={loding}
         setTodo={setTodos}
         onDelete={deleteItem}
+        onNavText={setNavText}
          />
         </div>
         <Footer />

@@ -17,9 +17,9 @@ function Items(props) {
 
   const handlChange = async (e) => {
     try{
-      const api = "http://localhost:3001";
+      const api = "https://react-todolist-app-server.onrender.com";
       const allData = await axios.get(api);
-      const patchApi = `http://localhost:3001/${allData.data[e.target.id]._id}`
+      const patchApi = `https://react-todolist-app-server.onrender.com/${allData.data[e.target.id]._id}`
       const updatedIsDone = await axios.patch(patchApi, {
         isDone: e.target.checked
       });

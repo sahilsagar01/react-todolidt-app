@@ -1,52 +1,17 @@
 
 import "./NavBar.css"
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-
-function NavBar() {
+import Spinner from 'react-bootstrap/Spinner';
+function NavBar(props) {
   return (
     <>
-      {/* {['md'].map((expand) => (
-        <Navbar key={expand}  bg='none' expand={expand} className=" bg-body-tertiary mb-3">
-          <Container fluid>
-            <Navbar.Brand href="#">To Do List</Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              placement="end"
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                Options
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1" className='linkHome'>Home</Nav.Link>
-                  <Nav.Link href="#action2" className='linkAbout'>About</Nav.Link>
-                  <Nav.Link href="#action2" className='linkContacts'>Contacts</Nav.Link>
-                  <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                  >
-                    <NavDropdown.Item href="#action3" disabled>Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action4" disabled>
-                      Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action5" disabled>
-                      Something else here
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))} */}
       <div className='navbar'>
         <div className='cont'>
-          <h1>Todo List <FormatListBulletedIcon /></h1>
+          <h1>{props.addItem  || "Todo List"} {props.addItem === "Waiting for server... "
+           ? 
+          <Spinner animation="grow" variant="light" size="sm" />
+          :
+          <FormatListBulletedIcon />}</h1>
         </div>
       </div>
     </>
