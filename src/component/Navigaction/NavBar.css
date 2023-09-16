@@ -8,9 +8,10 @@
 }
 .navbar .cont{
    background-color: #b094ed;
-   text-align: center;
-   font-size: 12px;
    min-width: 290px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    max-width: 450px;
    margin: 2rem;
    border-radius: 3px;
@@ -18,4 +19,6 @@
 }
 
 
-
+.cont h1{
+    font-size: 24px;
+}

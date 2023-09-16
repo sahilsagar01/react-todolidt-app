@@ -7,10 +7,12 @@ import axios from 'axios';
 function Items(props) {
   const {id, todo, date, onDel, dbId, Done} = props;
   const [lineThrough, setLineThrough] = useState(false)
+  const [delBtn, setDelBtn] = useState(false)
   
 
   useEffect(() => {
     setLineThrough(Done)
+    setDelBtn(Done)
   },[]);
 
   const handlChange = async (e) => {
@@ -22,6 +24,7 @@ function Items(props) {
         isDone: e.target.checked
       });
       setLineThrough(updatedIsDone.data.isDone);
+      setDelBtn(updatedIsDone.data.isDone)
     }
     catch(err){
       console.log(err)
@@ -38,7 +41,7 @@ function Items(props) {
         <div className='card_footer'>
         <p><AccessTimeIcon /> {date}</p>
         <span>
-        <DeleteOutlineIcon onClick={()=> onDel(id, dbId)} />
+        {delBtn && <DeleteOutlineIcon onClick={()=> onDel(id, dbId)} />}
         </span>
         </div>
     </div>
