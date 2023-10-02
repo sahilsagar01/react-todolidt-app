@@ -9,6 +9,10 @@
     flex-direction: column;
     gap: 5px;
     width: 100%;
+    transition: all ease 500ms;
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .card_title{
@@ -26,6 +30,9 @@
     height: 16px;
     width: 16px;
 }
+.card_title input:hover{
+    scale: 1.1;
+}
 .card_footer{
     display: flex;
     justify-content: space-between;
@@ -36,10 +43,10 @@
     height: 25px;
     width: 25px;
     cursor: pointer;
+    transition: all ease 100ms;
 }
 .card_footer span svg:hover{
-    height: 30px;
-    width: 30px;
+    scale: 1.1;
 }
 
 .card_footer p svg{
@@ -53,4 +60,18 @@
     margin-top: 10px;
     opacity: 100%;
    
+}
+.delete{
+    position: relative;
+    animation: popout 500ms;
+}
+
+@keyframes popout{
+    0%,50%{
+        transform: translateX(10px);
+    }
+    50%,100%{
+        transform: translateX(200px);
+        opacity: 0%;
+    }
 }

@@ -61,7 +61,7 @@ function AddItem(props) {
               Add Item
             </Button>
 
-            <CloseIcon onClick={() => setEditable(false)} />
+            <CloseIcon className="crossBtn" onClick={() => setEditable(false)} />
           </div>
         </form>
       ) : (

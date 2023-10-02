@@ -30,10 +30,14 @@ function Items(props) {
       console.log(err)
     }
   };
+  const handledelete = () => {
+    onDel(id, dbId)
+    document.getElementById(id).classList.add("delete")
+  }
 
   
   return (
-    <div className='card'>
+    <div id={id} onClick={() => console.log("clicked")} className='card'>
         <div className='card_title' style={{textDecoration: props.style || lineThrough ? "line-through" : "none"}}>
         <input id={id} name={Done} type='checkbox' onChange={handlChange} defaultChecked={Done ? true : false} />
         <span>{todo}</span>      
@@ -41,7 +45,7 @@ function Items(props) {
         <div className='card_footer'>
         <p><AccessTimeIcon /> {date}</p>
         <span>
-        {delBtn && <DeleteOutlineIcon onClick={()=> onDel(id, dbId)} />}
+        {delBtn && <DeleteOutlineIcon onClick={handledelete} />}
         </span>
         </div>
     </div>
